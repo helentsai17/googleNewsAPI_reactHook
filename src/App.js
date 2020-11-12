@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Header from './component/header'
+import Main from './component/main'
+import Navbar from './component/navbar'
+import Footer from './component/footer'
+import axios from 'axios'
 
 function App() {
+
+  const [news, setNews] = useState([])
+  const [seenews, setseenews] =useState('')
+
+  useEffect(() => {
+    axios({
+        method: 'Get',
+        url: 'http://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=9fa5654718a846f3a98f878580f71ce2'
+    }).then(res => {
+        setNews(res.data.articles)
+        console.log(res.data.articles)
+    })
+}, 5000)
+
+ function clicktitle(title){
+      setseenews(title)
+ }
+
+ function seeAll(){
+    setseenews('')
+    console.log("seeAll")
+ }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Header />
+      <Main news={news} seeNews={seenews} seeall={seeAll} clickTitle={clicktitle}/>
+      <Navbar news={news} clickTitle={clicktitle}/>
+      <Footer />
     </div>
   );
 }
+
+//9fa5654718a846f3a98f878580f71ce2 apikey 
 
 export default App;
