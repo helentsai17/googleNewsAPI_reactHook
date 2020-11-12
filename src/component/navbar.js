@@ -32,8 +32,6 @@ function Navbar(props) {
 
 
     return (
-
-
         <aside className={style.navbarleft}>
             <div style={{"padding":"5%"}}>
                 <input type="text" className="form-control" placeholder="search news" value={searchinput} onChange={typeinsearch} aria-label="Recipient's username" aria-describedby="button-addon2" />
@@ -45,9 +43,6 @@ function Navbar(props) {
             <h3>today's tech news</h3>
             {newslist()}
         </aside>
-
-
-
     );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import NewsCard from './newscard'
+import style from './narbar.module.css'
 
 
 function Main(props) {
@@ -16,7 +17,7 @@ function Main(props) {
 
   return (
     <div >
-      <main style={{"textAlign":"center"}}>
+      <main className={style.newsmain} style={{"textAlign":"center"}}>
         <h1>NEWS</h1>
         <div onClick={()=>{props.seeall()}}>SEE ALL NEWS</div>
         {newslist()}
