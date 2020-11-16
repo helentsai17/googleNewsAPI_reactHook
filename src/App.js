@@ -5,6 +5,8 @@ import Navbar from './component/navbar'
 import Footer from './component/footer'
 import axios from 'axios'
 // import style from '../component/narbar.module.css'
+import data from './component/fakenew'
+
 
 function App() {
 
@@ -30,19 +32,21 @@ function App() {
     console.log("seeAll")
   }
 
+  
+
   return (
     <div >
       <Header />
-      <div style={{"width":"100%"}}>
-        <Main news={news} seeNews={seenews} seeall={seeAll} clickTitle={clicktitle} />
+      <div style={{ "width": "100%" }}>
+        <Main news={news} seeNews={seenews} seeall={seeAll} clickTitle={clicktitle} blog={data}/>
         <Navbar news={news} clickTitle={clicktitle} />
       </div>
-      
-      <div><Footer /></div>
-      
-      {/* <div style={{"minWidth":"1000px","border":"solid"}}>
-            <h5>made by Helen Tsai</h5>
-        </div> */}
+
+      <div>
+        <Footer />
+      </div>
+
+
     </div>
   );
 }

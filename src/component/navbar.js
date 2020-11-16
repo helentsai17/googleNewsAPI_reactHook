@@ -41,6 +41,7 @@ function Navbar(props) {
                 
             </div>
             <h3>today's tech news</h3>
+            <p>the new list here are real from google. click the title to see more</p>
             {newslist()}
         </aside>
     );
